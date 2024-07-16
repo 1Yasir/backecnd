@@ -1,19 +1,16 @@
-const express = require("express");
-require('dotenv').config();
-
-const app = express();
-const PORT = process.env.PORT || 3000
+const bcrypt = require("bcrypt");
 
 
-console.log(PORT);
+const hashingPassword = async () => {
+    const password = "yasasdfg sdfg";
+
+    const hashedPassword = await bcrypt.hash(password, 8);
+    console.log(hashedPassword);
+
+    const compare = await bcrypt.compare(password, hashedPassword);
+    console.log(compare);
 
 
+}
 
-app.get("/" , (req , res)=>{
-    res.send("hello world!");
-})
-
-
-app.listen(PORT , ()=>{
-    console.log("Server is run....");
-});
+hashingPassword();
