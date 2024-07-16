@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
+const mongodb = process.env.mongodb;
+
 
 async function main() {
 
-    return await mongoose.connect("mongodb://localhost:27017/youtube");
+    return await mongoose.connect(mongodb);
 }
 
 
